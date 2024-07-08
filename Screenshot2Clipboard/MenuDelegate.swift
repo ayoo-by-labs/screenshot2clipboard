@@ -14,6 +14,13 @@ class MenuDelegate: NSObject, NSMenuDelegate {
         menu.removeAllItems()
 
         menu.addItem(NSMenuItem(
+            title: "About",
+            action: #selector(selectorAbout),
+            keyEquivalent: "e"))
+        
+        menu.addItem(NSMenuItem.separator())
+
+        menu.addItem(NSMenuItem(
             title: "Quit",
             action: #selector(selectorQuit),
             keyEquivalent: "q"))
@@ -21,6 +28,10 @@ class MenuDelegate: NSObject, NSMenuDelegate {
         for item in menu.items {
             item.target = self
         }
+    }
+
+    @objc func selectorAbout(sender: NSMenuItem) {
+        NSApp.orderFrontStandardAboutPanel()
     }
 
     @objc func selectorQuit(sender: NSMenuItem) {
