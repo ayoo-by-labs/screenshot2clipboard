@@ -3,8 +3,10 @@ name: Xcode - Build and Analyze
 on:
   push:
     branches: ["main"]
+    paths: ['Screenshot2Clipboard.xcodeproj/**', 'Screenshot2Clipboard/**']
   pull_request:
     branches: ["main"]
+    paths: ['Screenshot2Clipboard.xcodeproj/**', 'Screenshot2Clipboard/**']
 
 jobs:
   debug:
