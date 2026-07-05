@@ -1,40 +1,40 @@
 //
 //  MenuDelegate.swift
-//  Twenty3
+//  Screenshot2Clipboard
 //
-//  Created by Diab Neiroukh on 26/06/2024.
+//  Created by Diab Neiroukh on 2024-07-04.
 //
 
 import Cocoa
 
 class MenuDelegate: NSObject, NSMenuDelegate {
-    let menu = NSMenu()
+	let menu = NSMenu()
 
-    func menuNeedsUpdate(_ menu: NSMenu) {
-        menu.removeAllItems()
+	func menuNeedsUpdate(_ menu: NSMenu) {
+		menu.removeAllItems()
 
-        menu.addItem(NSMenuItem(
-            title: "About",
-            action: #selector(selectorAbout),
-            keyEquivalent: "e"))
-        
-        menu.addItem(NSMenuItem.separator())
+		menu.addItem(NSMenuItem(
+			title: "About",
+			action: #selector(selectorAbout),
+			keyEquivalent: ""))
 
-        menu.addItem(NSMenuItem(
-            title: "Quit",
-            action: #selector(selectorQuit),
-            keyEquivalent: "q"))
-        
-        for item in menu.items {
-            item.target = self
-        }
-    }
+		menu.addItem(NSMenuItem.separator())
 
-    @objc func selectorAbout(sender: NSMenuItem) {
-        NSApp.orderFrontStandardAboutPanel()
-    }
+		menu.addItem(NSMenuItem(
+			title: "Quit",
+			action: #selector(selectorQuit),
+			keyEquivalent: "q"))
 
-    @objc func selectorQuit(sender: NSMenuItem) {
-        NSApp.terminate(self)
-    }
+		for item in menu.items {
+			item.target = self
+		}
+	}
+
+	@objc func selectorAbout(sender: NSMenuItem) {
+		NSApp.orderFrontStandardAboutPanel()
+	}
+
+	@objc func selectorQuit(sender: NSMenuItem) {
+		NSApp.terminate(self)
+	}
 }
