@@ -13,6 +13,7 @@
 		240EB1562C3727AE0061C037 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240EB1552C3727AE0061C037 /* AppDelegate.swift */; };
 		240EB1622C37288A0061C037 /* ScreenShotObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240EB1612C37288A0061C037 /* ScreenShotObserver.swift */; };
 		240EB1682C3733C20061C037 /* ObserverDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240EB1672C3733C20061C037 /* ObserverDelegate.swift */; };
+		A1B2C3D4E5F600000000AA01 /* ScreenshotLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F600000000AA02 /* ScreenshotLocation.swift */; };
 		240EB16A2C373A9E0061C037 /* MenuDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240EB1692C373A9E0061C037 /* MenuDelegate.swift */; };
 		244E4E042C3C538C00639A39 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 244E4E012C3C50B700639A39 /* LICENSE */; };
 		244E4E072C3C53F400639A39 /* Credits.html in Resources */ = {isa = PBXBuildFile; fileRef = 244E4E062C3C53F400639A39 /* Credits.html */; };
@@ -30,6 +31,7 @@
 		240EB1612C37288A0061C037 /* ScreenShotObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenShotObserver.swift; sourceTree = "<group>"; };
 		240EB1632C372A150061C037 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		240EB1672C3733C20061C037 /* ObserverDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObserverDelegate.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F600000000AA02 /* ScreenshotLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotLocation.swift; sourceTree = "<group>"; };
 		240EB1692C373A9E0061C037 /* MenuDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDelegate.swift; sourceTree = "<group>"; };
 		244E4E012C3C50B700639A39 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		244E4E062C3C53F400639A39 /* Credits.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = Credits.html; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 				240EB14C2C3727690061C037 /* Preview Content */,
 				240EB1552C3727AE0061C037 /* AppDelegate.swift */,
 				240EB1672C3733C20061C037 /* ObserverDelegate.swift */,
+				A1B2C3D4E5F600000000AA02 /* ScreenshotLocation.swift */,
 				240EB15C2C3728620061C037 /* Screenshot2Clipboard-Bridging-Header.h */,
 				244E4E062C3C53F400639A39 /* Credits.html */,
 			);
@@ -134,7 +137,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1540;
-				LastUpgradeCheck = 1540;
+				LastUpgradeCheck = 2630;
 				TargetAttributes = {
 					240EB1422C3727680061C037 = {
 						CreatedOnToolsVersion = 15.4;
@@ -183,6 +186,7 @@
 				240EB1562C3727AE0061C037 /* AppDelegate.swift in Sources */,
 				240EB1472C3727680061C037 /* Screenshot2ClipboardApp.swift in Sources */,
 				240EB1682C3733C20061C037 /* ObserverDelegate.swift in Sources */,
+				A1B2C3D4E5F600000000AA01 /* ScreenshotLocation.swift in Sources */,
 				240EB16A2C373A9E0061C037 /* MenuDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -224,8 +228,9 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				DEAD_CODE_STRIPPING = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 73K8LLPMN4;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -250,6 +255,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -291,6 +297,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 73K8LLPMN4;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -309,6 +316,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
@@ -324,13 +332,16 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Screenshot2Clipboard/Preview Content\"";
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_FILE_ACCESS_PICTURE_FOLDER = readonly;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSUIElement = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "© 2024 Zest Projects Ltd. All rights reserved.";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This application monitors screenshots taken in order to copy them to the Clipboard.";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "© 2026 Ayooby. All rights reserved.";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -356,13 +367,16 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Screenshot2Clipboard/Preview Content\"";
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_FILE_ACCESS_PICTURE_FOLDER = readonly;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSUIElement = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "© 2024 Zest Projects Ltd. All rights reserved.";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This application monitors screenshots taken in order to copy them to the Clipboard.";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "© 2026 Ayooby. All rights reserved.";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
