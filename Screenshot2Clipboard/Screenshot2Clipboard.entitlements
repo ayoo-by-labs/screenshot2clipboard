@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>com.apple.security.files.bookmarks.app-scope</key>
+	<true/>
+	<!-- The sandbox denies reading other domains' preferences, and the folder
+	     macOS saves screenshots to lives in com.apple.screencapture. Read-only,
+	     single key, no write access. -->
+	<key>com.apple.security.temporary-exception.shared-preference.read-only</key>
+	<array>
+		<string>com.apple.screencapture</string>
+	</array>
+</dict>
+</plist>

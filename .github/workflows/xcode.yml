@@ -1,0 +1,46 @@
+name: Xcode - Build and Analyze
+
+on:
+  push:
+    branches: ["master"]
+    paths: ['Screenshot2Clipboard.xcodeproj/**', 'Screenshot2Clipboard/**', 'Screenshot2ClipboardTests/**', '.github/workflows/xcode.yml']
+  pull_request:
+    branches: ["master"]
+    paths: ['Screenshot2Clipboard.xcodeproj/**', 'Screenshot2Clipboard/**', 'Screenshot2ClipboardTests/**', '.github/workflows/xcode.yml']
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Analyze ${{ matrix.scheme }}
+    runs-on: macos-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        scheme: [Debug, Release]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Build and analyse
+        run: |
+          set -o pipefail
+          xcodebuild analyze \
+            -project Screenshot2Clipboard.xcodeproj \
+            -scheme "${{ matrix.scheme }}" \
+            CODE_SIGNING_ALLOWED=NO \
+            | xcbeautify
+  tests:
+    name: Tests
+    runs-on: macos-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Run the standalone checks
+        run: |
+          swiftc Screenshot2Clipboard/ScreenshotLocation.swift Screenshot2ClipboardTests/ScreenshotLocationTests.swift \
+              -o "$TMPDIR/s2c-tests" && "$TMPDIR/s2c-tests"

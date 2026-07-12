@@ -1,0 +1,68 @@
+name: CodeQL
+
+on:
+  push:
+    branches: ["master"]
+    paths: ["Screenshot2Clipboard.xcodeproj/**", "Screenshot2Clipboard/**", "Screenshot2ClipboardTests/**", ".github/workflows/**"]
+  pull_request:
+    branches: ["master"]
+    paths: ["Screenshot2Clipboard.xcodeproj/**", "Screenshot2Clipboard/**", "Screenshot2ClipboardTests/**", ".github/workflows/**"]
+  schedule:
+    - cron: '14 3 * * 1'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  analyze:
+    name: Analyze (${{ matrix.language }})
+    runs-on: ${{ matrix.os }}
+    permissions:
+      security-events: write
+      packages: read
+      actions: read
+      contents: read
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - language: swift
+            build-mode: manual
+            os: macos-latest
+          - language: actions
+            build-mode: none
+            os: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v4
+        with:
+          languages: ${{ matrix.language }}
+          build-mode: ${{ matrix.build-mode }}
+
+      # CodeQL's autobuild cannot trace Xcode 26's explicitly built modules, so
+      # the Swift target is built manually as a linear, traceable compilation:
+      # no explicit modules, no index store, no code signing, and a clean
+      # rebuild. The standalone test harness compiles afterwards so its Swift
+      # is scanned too.
+      - name: Build Swift
+        if: matrix.build-mode == 'manual'
+        run: |
+          xcodebuild clean build \
+            -project Screenshot2Clipboard.xcodeproj \
+            -scheme Debug \
+            -configuration Debug \
+            -destination 'platform=macOS' \
+            CODE_SIGNING_ALLOWED=NO \
+            COMPILER_INDEX_STORE_ENABLE=NO \
+            SWIFT_ENABLE_EXPLICIT_MODULES=NO
+          swiftc Screenshot2Clipboard/ScreenshotLocation.swift Screenshot2ClipboardTests/ScreenshotLocationTests.swift \
+              -o "$RUNNER_TEMP/s2c-tests"
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v4
+        with:
+          category: "/language:${{ matrix.language }}"
