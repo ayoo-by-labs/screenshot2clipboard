@@ -13,10 +13,11 @@
 		240EB1562C3727AE0061C037 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240EB1552C3727AE0061C037 /* AppDelegate.swift */; };
 		240EB1622C37288A0061C037 /* ScreenShotObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240EB1612C37288A0061C037 /* ScreenShotObserver.swift */; };
 		240EB1682C3733C20061C037 /* ObserverDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240EB1672C3733C20061C037 /* ObserverDelegate.swift */; };
-		240EB16A2C373A9E0061C037 /* MenuDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240EB1692C373A9E0061C037 /* MenuDelegate.swift */; };
-		A1B2C3D4E5F600000000AA01 /* ScreenshotLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F600000000AA02 /* ScreenshotLocation.swift */; };
 		244E4E042C3C538C00639A39 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 244E4E012C3C50B700639A39 /* LICENSE */; };
 		244E4E072C3C53F400639A39 /* Credits.html in Resources */ = {isa = PBXBuildFile; fileRef = 244E4E062C3C53F400639A39 /* Credits.html */; };
+		94F9160C7812DA6852C64597 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = E2B3FDE2F2C9A68D73B6FB4E /* PrivacyInfo.xcprivacy */; };
+		A1B2C3D4E5F600000000AA01 /* ScreenshotLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F600000000AA02 /* ScreenshotLocation.swift */; };
+		AC955BB498A15050A2929660 /* MenuBarKit in Frameworks */ = {isa = PBXBuildFile; productRef = 62B816E7EECCCB25C6836BB8 /* MenuBarKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,10 +32,10 @@
 		240EB1612C37288A0061C037 /* ScreenShotObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenShotObserver.swift; sourceTree = "<group>"; };
 		240EB1632C372A150061C037 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		240EB1672C3733C20061C037 /* ObserverDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObserverDelegate.swift; sourceTree = "<group>"; };
-		240EB1692C373A9E0061C037 /* MenuDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDelegate.swift; sourceTree = "<group>"; };
-		A1B2C3D4E5F600000000AA02 /* ScreenshotLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotLocation.swift; sourceTree = "<group>"; };
 		244E4E012C3C50B700639A39 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		244E4E062C3C53F400639A39 /* Credits.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = Credits.html; sourceTree = "<group>"; };
+		A1B2C3D4E5F600000000AA02 /* ScreenshotLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotLocation.swift; sourceTree = "<group>"; };
+		E2B3FDE2F2C9A68D73B6FB4E /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC955BB498A15050A2929660 /* MenuBarKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,7 +70,6 @@
 		240EB1452C3727680061C037 /* Screenshot2Clipboard */ = {
 			isa = PBXGroup;
 			children = (
-				240EB1692C373A9E0061C037 /* MenuDelegate.swift */,
 				240EB1592C3728150061C037 /* Utilities */,
 				240EB1462C3727680061C037 /* Screenshot2ClipboardApp.swift */,
 				240EB14A2C3727690061C037 /* Assets.xcassets */,
@@ -79,6 +80,7 @@
 				A1B2C3D4E5F600000000AA02 /* ScreenshotLocation.swift */,
 				240EB15C2C3728620061C037 /* Screenshot2Clipboard-Bridging-Header.h */,
 				244E4E062C3C53F400639A39 /* Credits.html */,
+				E2B3FDE2F2C9A68D73B6FB4E /* PrivacyInfo.xcprivacy */,
 			);
 			path = Screenshot2Clipboard;
 			sourceTree = "<group>";
@@ -125,6 +127,9 @@
 			dependencies = (
 			);
 			name = Screenshot2Clipboard;
+			packageProductDependencies = (
+				62B816E7EECCCB25C6836BB8 /* MenuBarKit */,
+			);
 			productName = Screenshot2Clipboard;
 			productReference = 240EB1432C3727680061C037 /* Screenshot2Clipboard.app */;
 			productType = "com.apple.product-type.application";
@@ -154,6 +159,9 @@
 				Base,
 			);
 			mainGroup = 240EB13A2C3727680061C037;
+			packageReferences = (
+				5D82E430C28E4464C96C26C3 /* XCRemoteSwiftPackageReference "menubarkit" */,
+			);
 			productRefGroup = 240EB1442C3727680061C037 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -172,6 +180,7 @@
 				244E4E072C3C53F400639A39 /* Credits.html in Resources */,
 				240EB14E2C3727690061C037 /* Preview Assets.xcassets in Resources */,
 				240EB14B2C3727690061C037 /* Assets.xcassets in Resources */,
+				94F9160C7812DA6852C64597 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,7 +196,6 @@
 				240EB1472C3727680061C037 /* Screenshot2ClipboardApp.swift in Sources */,
 				240EB1682C3733C20061C037 /* ObserverDelegate.swift in Sources */,
 				A1B2C3D4E5F600000000AA01 /* ScreenshotLocation.swift in Sources */,
-				240EB16A2C373A9E0061C037 /* MenuDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,9 +343,9 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "© 2024-2026 Ayooby (https://ayoo.by)";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -372,9 +380,9 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "© 2024-2026 Ayooby (https://ayoo.by)";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -412,6 +420,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5D82E430C28E4464C96C26C3 /* XCRemoteSwiftPackageReference "menubarkit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:ayoo-by-labs/menubarkit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		62B816E7EECCCB25C6836BB8 /* MenuBarKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5D82E430C28E4464C96C26C3 /* XCRemoteSwiftPackageReference "menubarkit" */;
+			productName = MenuBarKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 240EB13B2C3727680061C037 /* Project object */;
 }

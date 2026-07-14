@@ -1,0 +1,15 @@
+{
+  "originHash" : "6a1dcdf27151e4c696ec4fab990d2af71b5ce349ccca3c7c87f56de3bceed92d",
+  "pins" : [
+    {
+      "identity" : "menubarkit",
+      "kind" : "remoteSourceControl",
+      "location" : "git@github.com:ayoo-by-labs/menubarkit.git",
+      "state" : {
+        "revision" : "5fae763e229d2b8eb69432b718fc5419000efa6f",
+        "version" : "0.1.0"
+      }
+    }
+  ],
+  "version" : 3
+}
