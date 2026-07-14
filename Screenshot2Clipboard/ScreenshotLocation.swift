@@ -15,11 +15,16 @@ enum ScreenshotLocation {
 	// The real user home, from the user database. Under the App Sandbox,
 	// homeDirectoryForCurrentUser (and tilde expansion) point inside the
 	// container, which would misresolve the screenshot folder and defeat
-	// the ~/Pictures entitlement check.
-	static let userHome = URL(
-		fileURLWithPath: String(cString: getpwuid(getuid()).pointee.pw_dir),
-		isDirectory: true
-	)
+	// the ~/Pictures entitlement check. getpwuid can return NULL (a directory-
+	// services hiccup), so fall back to the container home rather than trap —
+	// degraded (the ~/Pictures shortcut is lost, the open panel takes over) but
+	// alive.
+	static let userHome: URL = {
+		if let pw = getpwuid(getuid()), let dir = pw.pointee.pw_dir {
+			return URL(fileURLWithPath: String(cString: dir), isDirectory: true)
+		}
+		return URL(fileURLWithPath: NSHomeDirectory(), isDirectory: true)
+	}()
 
 	// The folder macOS writes screenshots to: the `location` set via
 	// `defaults write com.apple.screencapture location`, else ~/Desktop (the
