@@ -6,6 +6,7 @@
 //
 
 import Cocoa
+import UniformTypeIdentifiers
 
 class ObserverDelegate: NSObject, ScreenShotObserverDelegate {
 	// Nil when the user declined folder access: Screeen treats an empty scope
@@ -58,8 +59,23 @@ class ObserverDelegate: NSObject, ScreenShotObserverDelegate {
 		}
 
 		lastCopied = (imagePath, created)
+
+		// Publish the file's own bytes under its real type (a PNG stays a PNG),
+		// plus a TIFF fallback from the decoded image so any target gets
+		// something — writeObjects([NSImage]) alone re-encodes every capture to
+		// a bulky TIFF and drops targets that only take PNG (web fields, some
+		// Electron apps).
+		let item = NSPasteboardItem()
+		if let type = UTType(filenameExtension: (imagePath as NSString).pathExtension)?.identifier,
+		   let data = try? Data(contentsOf: URL(fileURLWithPath: imagePath)) {
+			item.setData(data, forType: NSPasteboard.PasteboardType(type))
+		}
+		if let tiff = image.tiffRepresentation {
+			item.setData(tiff, forType: .tiff)
+		}
+
 		let clipboard = NSPasteboard.general
 		clipboard.clearContents()
-		clipboard.writeObjects([image])
+		clipboard.writeObjects([item])
 	}
 }
