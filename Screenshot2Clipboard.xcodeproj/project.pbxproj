@@ -424,7 +424,7 @@
 /* Begin XCRemoteSwiftPackageReference section */
 		5D82E430C28E4464C96C26C3 /* XCRemoteSwiftPackageReference "menubarkit" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:ayoo-by-labs/menubarkit.git";
+			repositoryURL = "https://github.com/ayoo-by-labs/menubarkit.git";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 0.1.0;

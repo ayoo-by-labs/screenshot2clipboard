@@ -4,7 +4,7 @@
     {
       "identity" : "menubarkit",
       "kind" : "remoteSourceControl",
-      "location" : "git@github.com:ayoo-by-labs/menubarkit.git",
+      "location" : "https://github.com/ayoo-by-labs/menubarkit.git",
       "state" : {
         "revision" : "5fae763e229d2b8eb69432b718fc5419000efa6f",
         "version" : "0.1.0"
